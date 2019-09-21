@@ -1,0 +1,87 @@
+<div class="div">
+  <div class="form-group row">
+  <div class="col-sm-5">
+  <div style="font-style: italic;  font-weight: bold; font-size: 20px">Product List:
+  <button type="button" class="btn btn-primary btn-sm" (click)="addProduct()">Add Product</button>&nbsp;
+  <button type="button" class="btn btn-primary btn-sm" (click)="showUserlist()"> Userlist</button>
+  </div>
+  </div>
+  </div>
+    <p-table [value]="productData">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Product Name</th>
+        <th>Brand</th>
+        <th>MSRP</th>
+        <th>Sale Price</th>
+        <th>Action</th>
+      
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr [pSelectableRow]="product">
+        
+        <td>{{product.productName}}</td>
+        <td>{{product.brand}}</td>
+        <td>{{product.msrp}}</td>
+        <td>{{product.salePrice}}</td>
+   
+           <td>
+            <button (click)="editList(product)" class="btn btn-dark" style="font-size: 12px"> <i class="fa fa-pencil" ></i>Edit</button>  &nbsp;
+            <button (click)="deleteProd(product.productId)" class="btn btn-dark" style="font-size: 12px"> <i class="fa fa-trash-o fa-fw"></i>Delete</button>  
+        </td>  
+
+        <p-dialog [(visible)]="deleteDialog" header={{modal_title}}>
+          <h6 class="popup-title container h-100 d-flex justify-content-center">Do you want to delete Product</h6>
+          <div class="form-group row container h-100 d-flex justify-content-center">
+          <button (click)="deleteProduct()" class="btn">Yes</button>
+          <div class="col-2"></div>
+          <button (click)="deleteDialog = !deleteDialog" class="btn">Close</button>
+          </div>
+          </p-dialog>        
+      </tr>
+      <p-dialog header="Update Product List " [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+        
+        <form class="col s12 white">
+
+          <div class="form-group">
+            <label>ProductName</label>
+            <input type="text" class="form-control" required placeholder="Enter product" name="ProductName" 
+            [(ngModel)]="currentProduct.productName">
+          </div>
+  
+          <div class="form-group">
+            <label>Brand</label>
+            <input type="text"  required placeholder="Enter Brand"  class="form-control" name="Brand" 
+              [(ngModel)]="currentProduct.brand">
+          </div>
+  
+          <div class="form-group">
+            <label>MSRP</label>
+            <input type="number" class="form-control" required   placeholder="Enter MSRP ₹" name="MSRP" 
+           [(ngModel)]="currentProduct.msrp">
+          </div>
+  
+          <div class="form-group">
+            <label>SalePrice</label>
+            <input type="number" class="form-control"  placeholder="Enter SalePrice ₹" required name="SalePrice" 
+              [(ngModel)]="currentProduct.salePrice">
+          </div>
+        </form>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="updatelist(currentProduct)" label="Update"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Close" class="ui-button-secondary"></button>
+        </p-footer>
+      
+       </p-dialog> 
+  
+
+
+    
+    </ng-template>
+  </p-table>
+</div>
+  
+    
+

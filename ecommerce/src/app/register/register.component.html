@@ -1,0 +1,89 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<div class="form-gap"></div>
+<div class="container">
+	<div class="row">
+    	<div class="col-md-4 col-md-offset-4">
+       
+        <div class="panel panel-default" style="border-color: rgb(133, 133, 247)" >
+              <div class="panel">
+                <div class="text-center">
+                  <h3><i class="fa fa-user-o" style="font-size:36px"></i></h3>
+                <h2 class="text-center">Sign-up </h2>
+                <div class="panel-body">
+    
+                      <form class="col s12 white" (ngSubmit)="register()" #UserRegistrationForm="ngForm">
+
+                          <div class="form-group">
+                            <label>Name</label>
+                            <input  type="text" class="form-control" required placeholder="Enter Name"  name="username" #username="ngModel" [(ngModel)]="user.username">
+                          </div>
+                  
+                          <div class="form-group">
+                            <label>Mobile</label>
+                            <input type="tel" pattern="^\d{10}$"  required placeholder="Enter Mobile Number"  class="form-control" name="Phone" #Phone="ngModel"
+                              [(ngModel)]="user.phone">
+                          </div>
+                  
+                          <div class="form-group">
+                            <label>E-mail address</label>
+                            <input type="email" class="form-control" required   placeholder="Enter E-mail address" name="Email" #Email="ngModel" [(ngModel)]="user.email">
+                          </div>
+                  
+                          <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control"  placeholder="Enter Password"required name="Password" #Password="ngModel"
+                              [(ngModel)]="user.password">
+                          </div>
+                  
+                          <div class="form-group">
+                              <label>Select Gender</label>
+                            <select class="form-control" name="Gender" #Gender="ngModel" [(ngModel)]="user.gender">
+                                <option value="undefined">Select Gender</option>
+                              <option *ngFor="let gender of gender" [value]="gender">{{ gender }}</option>
+                            </select>
+                          </div>
+                  
+                          <button class=" btn-large btn-primary" type="reset"> Reset</button>
+                          <button class="btn-large btn-primary"  type="submit"> Submit</button>
+                          <a (click)="gotosignin()" class="btn btn-link"> Already have an account ? Sign in</a>
+                        </form>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

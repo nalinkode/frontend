@@ -1,0 +1,78 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ <div class="form-gap"></div>
+<div class="container">
+	<div class="row">
+    	<div class="col-md-4 col-md-offset-4">
+          
+        <div class="panel panel-default" style="border-color: rgb(133, 133, 247)">
+              <div class="panel">
+                <div class="text-center">
+                  <h3><i class="fa fa-user-o" style="font-size:36px"></i></h3>
+                <h2 class="text-center"> Add Product</h2>
+                <div class="panel-body">
+
+                  <form class="col s12 white" (ngSubmit)="addproduct()" #AddProductForm="ngForm">
+
+                    <div class="form-group">
+                      <label>ProductName</label>
+                      <input  type="text" class="form-control" required placeholder="Enter product"  
+                      name="ProductName" #ProductName="ngModel" 
+                      [(ngModel)]="product.productName">
+                    </div>
+            
+                    <div class="form-group">
+                      <label>Brand</label>
+                      <input type="text"  required placeholder="Enter Brand"  class="form-control" name="Brand" #Brand="ngModel"
+                        [(ngModel)]="product.brand">
+                    </div>
+            
+                    <div class="form-group">
+                      <label>MSRP</label>
+                      <input type="number" class="form-control" required   placeholder="Enter MSRP ₹" name="MSRP" 
+                      #MSRP="ngModel" [(ngModel)]="product.msrp">
+                    </div>
+            
+                    <div class="form-group">
+                      <label>SalePrice</label>
+                      <input type="number" class="form-control"  placeholder="Enter SalePrice ₹" required name="SalePrice" #SalePrice="ngModel"
+                        [(ngModel)]="product.salePrice">
+                    </div>
+
+
+                    <div class="form-group">
+                      <label>Upload Image</label>
+                      <img [src]="imageUrl" style="width:120px;height:80px">
+                      <input type="file" (change)="handleFileInput($event.target.files)" #Image accept="image/*"
+>
+                    </div>
+            
+            
+                    <button class=" btn-large btn-primary" type="reset"> Reset</button>
+                    <button class="btn-large btn-primary"  type="submit"> Submit</button>
+                    <a (click)="gotolist()" class="btn btn-link"> Product List</a>
+           
+
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+	   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
